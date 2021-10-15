@@ -1,9 +1,7 @@
 import {
   BaseEntity,
   Column,
-  DeleteDateColumn,
   Entity,
-  PrimaryColumn,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -13,19 +11,18 @@ export class Item extends BaseEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ name: 'name', type: 'varchar', length: 50 })
+  @Column()
   name: string;
 
-  @Column({ name: 'description', type: 'varchar', nullable: true, length: 255 })
+  @Column()
+  taste: string;
+
+  @Column()
   description?: string;
 
-  @Column({ name: 'quantity', type: 'int' })
+  @Column()
   quantity: number;
 
-  @UpdateDateColumn({
-    name: 'update_at',
-    type: 'timestamptz',
-    default: () => 'CURRENT_TIMESTAMP',
-  })
+  @UpdateDateColumn()
   updateAt: Date;
 }

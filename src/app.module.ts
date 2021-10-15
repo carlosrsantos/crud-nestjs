@@ -20,6 +20,8 @@ import { ItemModule } from './item/item.module';
       database: process.env.DB_DATABASE,
       entities: [__dirname + '/**/*.entity{.ts,.js}'],
       synchronize: process.env.DB_SYNCHRONIZE === 'true',
+      migrations: ['dist/src/migrations.js'],
+      cli: { migrationsDir: 'src/migrations' },
     }),
     ItemModule,
   ],
